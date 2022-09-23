@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css"/>
+ <script src="https://js.arcgis.com/4.24/"></script>
+ <script>src="https://code.jquery.com/jquery-3.6.1.min.js"</script>
+ <!-- Style Halaman -->
+ <style>
+    html,
+    body,
+    #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+ </style>
+ <script>
+require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/layers/GeoJSONLayer",
+    ],(
+      Map,
+      MapView,
+      GeoJSONLayer,
+    )=>{
+     //Masukan layer batas admin
+     const BatasAdmin = new GeoJSONLayer({
+        url:"https://raw.githubusercontent.com/DutyKendartiwastra/Belajar1/main/Batas_Administrasi_Kota_Bontang.geojson",
+        // labelingInfo:labelClass,
+        // popupTemplate:TUT,
+        //  renderer:renderer
+      });
+    //Masukan layer potensi pengembangan
+    const Potensi = new GeoJSONLayer({
+        url:"",
+        // labelingInfo:labelClass,
+        // popupTemplate:TUT,
+        //  renderer:renderer
+      });
+    
+     // Insert Basemap
+     const map_Vektor = new Map({
+        basemap:"satellite"
+      });
+     // Menampilkan Basemap ke Bodi HTML
+     const View = new MapView({
+        container: "viewDiv",
+        map: map_Vektor,
+        zoom:12,
+        center:[117.46917675050003,0.11673644470944267]
+      });
+     //Konten Muka Peta
+     map_Vektor.add(BatasAdmin);
+    }
+)
+ </script>
+
+<body>
+    <div id="viewDiv"></div> 
+</body>
+</html>
