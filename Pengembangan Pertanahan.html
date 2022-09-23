@@ -39,7 +39,7 @@ require([
       });
     //Masukan layer potensi pengembangan
     const Potensi = new GeoJSONLayer({
-        url:"",
+        url:"https://raw.githubusercontent.com/DutyKendartiwastra/Webgis_Pengembangan_pertanahan/main/Potensi.geojson?token=GHSAT0AAAAAABY764SKIUS6O66OXEBCZCKQYZNNPSQ",
         // labelingInfo:labelClass,
         // popupTemplate:TUT,
         //  renderer:renderer
@@ -58,6 +58,7 @@ require([
       });
      //Konten Muka Peta
      map_Vektor.add(BatasAdmin);
+     map_Vektor.add(Potensi);
     }
 )
  </script>
